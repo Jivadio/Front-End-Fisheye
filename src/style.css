@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    @apply font-dmsans;
+}
+
+.photographer__img {
+    @apply w-[200px] h-[200px] rounded-full mx-auto;
+}
+
+.photographer__name {
+    @apply text-center text-4xl text-[#D3573C] mt-5;
+}
+
+.photographer__information {
+    @apply space-y-1;
+}
+
+.photographer__location {
+    @apply text-center text-sm text-[#901C1C] mt-2;
+}
+
+.photographer__tagline {
+    @apply text-center text-xs;
+}
+
+.photographer__price {
+    @apply text-center text-xs text-[#757575];
+}

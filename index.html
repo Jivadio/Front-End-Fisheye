@@ -1,21 +1,28 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Fisheye</title>
-  </head>
-  <body>
-    <header>
-        <img src="assets/images/logo.png" class="logo" alt="fisheye logo"/>
-        <h1>Nos photographes</h1>
+
+<head>
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+  <title>Fisheye</title>
+</head>
+
+<body>
+  <div class="container mx-auto py-14">
+    <header class="flex justify-between items-center">
+      <a href="index.html">
+        <img src="assets/images/logo.png" class="logo w-[200px] h-[50px]" alt="Fisheye Home page" />
+      </a>
+      <h1 class="text-[#901C1C] text-4xl">Nos photographes</h1>
     </header>
-    <main id="main">
-        <div class="photographer_section"></div>
+    <main id="main" class="mt-28">
+      <div class="photographer_section grid grid-cols-3 gap-x-65 gap-y-20"></div>
     </main>
-    <script src="scripts/templates/photographer.js"></script>
-    <script src="scripts/pages/index.js"></script>
-  </body>
+  </div>
+
+  <script type="module" src="scripts/pages/index.js"></script>
+</body>
+
 </html>
