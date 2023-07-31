@@ -8,6 +8,9 @@ export default class Photographer {
         this._price = photographerJson.price
         this._portrait = photographerJson.portrait
     }
+    get id() {
+        return this._id
+    }
     get name() {
         return this._name
     }

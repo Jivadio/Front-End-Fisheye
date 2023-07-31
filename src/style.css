@@ -29,3 +29,75 @@ body {
 .photographer__price {
     @apply text-center text-xs text-[#757575];
 }
+
+.photographer__link {
+    @apply w-fit mx-auto;
+}
+
+.photographer__page__name {
+    @apply text-6xl text-[#D3573C];
+}
+
+.photographer__page__location {
+    @apply text-2xl text-[#901C1C] mt-2;
+}
+
+.photographer__page__tagline {
+    @apply text-lg text-[#525252] mt-2;
+}
+
+.photographer__page__information {
+    @apply flex justify-between items-center;
+}
+
+.photographer__page__img {
+    @apply w-[200px] h-[200px] rounded-full;
+}
+
+.photographer__page__button {
+    @apply px-2 py-4 bg-[#901C1C] text-white rounded-md cursor-pointer;
+}
+
+.photographer__page__containertext {
+    @apply flex-1;
+}
+
+.photographer__page__containerbutton {
+    @apply flex-1 text-center;
+}
+
+.photographer__page__containerphoto {
+    @apply flex-1 flex justify-end;
+}
+
+.media__img {
+    @apply rounded-sm w-full h-[300px] object-cover;
+}
+
+.media__container {
+    @apply flex items-center justify-between;
+}
+
+.media__name {
+    @apply text-xl text-[#901C1C] mt-2;
+}
+
+.media__like {
+    @apply flex space-x-2;
+}
+
+.media__like__svg {
+    @apply w-6 h-6;
+}
+
+.media__card {
+    @apply flex flex-col justify-between;
+}
+
+.lightbox__image {
+    @apply object-contain max-h-[calc(100vh-10rem)] max-w-[calc(100vw-10rem)] rounded-lg;
+}
+
+.lightbox__text {
+    @apply text-2xl text-left font-thin text-[#901C1C];
+}
