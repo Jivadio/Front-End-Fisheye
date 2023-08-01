@@ -51,7 +51,7 @@ export default function photographerFactory(data) {
     function getPersonnalCardDOM() {
         img.classList.add("photographer__page__img");
         img.setAttribute("src", photographer.picture)
-        img.setAttribute("alt", "Photo de " + photographer.name)
+        img.setAttribute("alt", photographer.name)
         div.classList.add("photographer__page__information");
         div2.classList.add("photographer__page__containertext");
         div3.classList.add("photographer__page__containerbutton");

@@ -21,7 +21,8 @@
 
       <div class="mt-4 flex space-x-4 items-center">
         <p class="font-semibold text-lg">Trier par</p>
-        <select id="sortSelect" class="text-white bg-[#901C1C] border border-white rounded px-4 py-2">
+        <select id="sortSelect" class="text-white bg-[#901C1C] border border-white rounded px-4 py-2"
+          aria-label="“Order by” (lablled by 8)">
           <option value="popularity">Popularité</option>
           <option value="date">Date</option>
           <option value="title">Titre</option>
@@ -89,10 +90,10 @@
   </div>
 
   <div id="lightbox" class="bg-white z-50 fixed top-0 right-0 bottom-0 left-0 items-center justify-center"
-    style="display: none;">
+    style="display: none;" aria-label="image closeup view">
     <div class="rounded-md py-10 px-10 h-full relative">
       <div class="flex items-center justify-between h-full">
-        <a href="#" id="prevLink">
+        <a href="#" id="prevLink" aria-label="Previous image">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
             stroke="currentColor" class="w-24 h-24 text-[#901C1C]">
             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
@@ -103,14 +104,14 @@
 
           </div>
         </div>
-        <a href="#" id="nextLink">
+        <a href="#" id="nextLink" aria-label="Next image">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
             stroke="currentColor" class="w-24 h-24 text-[#901C1C]">
             <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
           </svg>
         </a>
       </div>
-      <button class="absolute top-10 right-10" id="closeLightbox">
+      <button class="absolute top-10 right-10" id="closeLightbox" aria-label="Close dialog">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
           class="w-20 h-20 text-[#901C1C]">
           <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />

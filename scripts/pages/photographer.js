@@ -71,11 +71,42 @@ const closeModalBtn = document.getElementById('closeModal');
 function openModal() {
     modal.style.display = 'flex';
     document.body.style.overflow = 'hidden';
+
+    const focusableElements = 'button, [href], input, textarea';
+    const modalFocusableElements = modal.querySelectorAll(focusableElements);
+
+    const firstElement = modalFocusableElements[0];
+    const lastElement = modalFocusableElements[modalFocusableElements.length - 1];
+
+    firstElement.focus();
+
+    modal.addEventListener('keydown', trapTabKey);
+
+    function trapTabKey(e) {
+        if (e.keyCode === 9) {
+            if (e.shiftKey) {
+                if (document.activeElement === firstElement) {
+                    e.preventDefault();
+                    lastElement.focus();
+                }
+            } else {
+                if (document.activeElement === lastElement) {
+                    e.preventDefault();
+                    firstElement.focus();
+                }
+            }
+        }
+
+        if (e.keyCode === 27) {
+            closeModal();
+        }
+    }
 }
 
 function closeModal() {
     modal.style.display = 'none';
     document.body.style.overflow = 'auto';
+    modal.removeEventListener('keydown', trapTabKey);
 }
 
 closeModalBtn.addEventListener('click', closeModal);
@@ -109,6 +140,36 @@ function openLightbox(media, index) {
 
     const closeLightboxBtn = document.getElementById('closeLightbox');
     closeLightboxBtn.addEventListener('click', closeLightbox);
+
+    lightBoxAll.addEventListener('keydown', trapTabKey);
+
+    const focusableElements = 'button, [href]';
+    const lightboxFocusableElements = lightBoxAll.querySelectorAll(focusableElements);
+
+    const firstElement = lightboxFocusableElements[0];
+    const lastElement = lightboxFocusableElements[lightboxFocusableElements.length - 1];
+
+    firstElement.focus();
+
+    function trapTabKey(e) {
+        if (e.keyCode === 9) {
+            if (e.shiftKey) {
+                if (document.activeElement === firstElement) {
+                    e.preventDefault();
+                    lastElement.focus();
+                }
+            } else {
+                if (document.activeElement === lastElement) {
+                    e.preventDefault();
+                    firstElement.focus();
+                }
+            }
+        }
+
+        if (e.keyCode === 27) {
+            closeLightbox();
+        }
+    }
 }
 
 function closeLightbox() {
@@ -118,6 +179,8 @@ function closeLightbox() {
 
     const lightbox = document.getElementById('lightbox_image_container');
     lightbox.innerHTML = '';
+
+    lightBoxAll.removeEventListener('keydown', trapTabKey);
 }
 
 nextLink.addEventListener('click', function (event) {

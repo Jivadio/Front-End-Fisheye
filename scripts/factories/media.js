@@ -8,6 +8,7 @@ export default function mediaFactory(data, openLightbox, index) {
     const divLike = document.createElement('div');
     const numberLike = document.createElement('p');
     const likeSVG = document.createElement('img');
+    const buttonLike = document.createElement('button');
     const source = document.createElement('source');
     const video = document.createElement('video');
     const img = document.createElement('img');
@@ -31,7 +32,7 @@ export default function mediaFactory(data, openLightbox, index) {
         else {
             img.classList.add("media__img");
             img.setAttribute("src", media.image)
-            img.setAttribute("alt", "Photo de " + media.title)
+            img.setAttribute("alt", media.title)
         }
 
         article.classList.add("media__card");
@@ -44,8 +45,11 @@ export default function mediaFactory(data, openLightbox, index) {
         likeSVG.classList.add("media__like__svg");
         likeSVG.setAttribute("src", "assets/icons/like.svg");
         likeSVG.setAttribute("alt", "Nombre de likes de la photo");
+        buttonLike.classList.add("media__buttonlike");
+        buttonLike.setAttribute("aria-label", "Like la photo");
         divLike.appendChild(numberLike);
-        divLike.appendChild(likeSVG);
+        buttonLike.appendChild(likeSVG);
+        divLike.appendChild(buttonLike);
 
 
         div.appendChild(pictureName);
@@ -66,7 +70,7 @@ export default function mediaFactory(data, openLightbox, index) {
             openLightbox(data, index);
         });
 
-        likeSVG.addEventListener('click', updateLikes);
+        buttonLike.addEventListener('click', updateLikes);
 
         return (article);
     }
