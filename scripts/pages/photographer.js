@@ -3,6 +3,7 @@ import mediaFactory from "../factories/media.js"
 import lightboxFactory from "../factories/lightbox.js";
 
 let mediaList = [];
+let trapTabKey;
 
 async function getPhotographers() {
     let response = await fetch('data/photographers.json');
@@ -82,7 +83,7 @@ function openModal() {
 
     modal.addEventListener('keydown', trapTabKey);
 
-    function trapTabKey(e) {
+    trapTabKey = function (e) {
         if (e.keyCode === 9) {
             if (e.shiftKey) {
                 if (document.activeElement === firstElement) {
@@ -106,7 +107,10 @@ function openModal() {
 function closeModal() {
     modal.style.display = 'none';
     document.body.style.overflow = 'auto';
-    modal.removeEventListener('keydown', trapTabKey);
+    if (trapTabKey) {
+        modal.removeEventListener('keydown', trapTabKey);
+        trapTabKey = null;
+    }
 }
 
 closeModalBtn.addEventListener('click', closeModal);
@@ -119,6 +123,13 @@ modal.addEventListener('click', (event) => {
 
 document.getElementById('contactForm').addEventListener('submit', function (event) {
     event.preventDefault();
+
+    const inputs = event.target.querySelectorAll('input, textarea, select');
+
+    inputs.forEach(input => {
+        console.log(`${input.name}: ${input.value}`);
+    });
+
     closeModal();
     console.log('Formulaire envoyé !');
 });
@@ -151,7 +162,7 @@ function openLightbox(media, index) {
 
     firstElement.focus();
 
-    function trapTabKey(e) {
+    trapTabKey = function (e) {
         if (e.keyCode === 9) {
             if (e.shiftKey) {
                 if (document.activeElement === firstElement) {
@@ -180,7 +191,10 @@ function closeLightbox() {
     const lightbox = document.getElementById('lightbox_image_container');
     lightbox.innerHTML = '';
 
-    lightBoxAll.removeEventListener('keydown', trapTabKey);
+    if (trapTabKey) {
+        lightBoxAll.removeEventListener('keydown', trapTabKey);
+        trapTabKey = null;
+    }
 }
 
 nextLink.addEventListener('click', function (event) {
