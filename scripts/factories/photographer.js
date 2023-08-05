@@ -19,7 +19,7 @@ export default function photographerFactory(data) {
     function getUserCardDOM() {
         img.classList.add("photographer__img");
         img.setAttribute("src", photographer.picture)
-        img.setAttribute("alt", "Photo de " + photographer.name)
+        img.setAttribute("alt", "photographer.name")
         h2.classList.add("photographer__name");
         h2.textContent = photographer.name;
         h3.classList.add("photographer__location");
