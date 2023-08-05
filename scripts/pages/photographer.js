@@ -236,3 +236,24 @@ sortSelect.addEventListener('change', function () {
         mediaSection.appendChild(mediaCardDOM);
     });
 });
+
+document.addEventListener('keydown', function (event) {
+    const lightbox = document.getElementById('lightbox_image_container');
+    if (event.key === 'ArrowRight') {
+        event.preventDefault();
+        currentIndex++;
+        if (currentIndex >= mediaList.length) {
+            currentIndex = 0;
+        }
+        lightbox.innerHTML = '';
+        openLightbox(mediaList[currentIndex], currentIndex);
+    } else if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        currentIndex--;
+        if (currentIndex < 0) {
+            currentIndex = mediaList.length - 1;
+        }
+        lightbox.innerHTML = '';
+        openLightbox(mediaList[currentIndex], currentIndex);
+    }
+});
